@@ -1,0 +1,12 @@
+{
+  "name": "nit1101-backend",
+  "version": "1.0.0",
+  "description": "Backend NIT1101 Assessment 2",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
