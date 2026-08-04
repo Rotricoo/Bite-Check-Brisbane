@@ -51,7 +51,7 @@
 
   /* Buttons */
   --btn-sm-padding: 0.5rem 1rem;
-  --btn-sm-padding
+  --btn-sm-padding-tall: 0.75rem 1rem;
   --btn-md-padding: 0.75rem 1.5rem;
   --btn-lg-padding: 1rem 2rem;
 }
