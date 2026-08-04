@@ -20,8 +20,8 @@ body {
 
 .header__logo img {
   display: block;
-  height: 50px;
-  width: auto;
+  height: auto;
+  width: 80%;
   object-fit: contain;
 }
 
@@ -53,14 +53,14 @@ body {
 /* Header weather widget styles */
 
 .header__weather {
-  color: var(--color-text-darkmode);
-  padding: var(--btn-md-padding);
-  background-color: var(--color-tertiary);
-  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--color-text-darkmode);
+  padding: var(--btn-md-padding-tall);
+  background-color: var(--color-tertiary);
+  border-radius: var(--radius-md);
 }
 
 .header__weather--container {
