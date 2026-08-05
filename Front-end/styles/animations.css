@@ -1,0 +1,26 @@
+/* Menu hamburguer animation  */
+
+.header__nav--toggle-icon-1,
+.header__nav--toggle-icon-2,
+.header__nav--toggle-icon-3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .header__nav--toggle-icon-1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.change .header__nav--toggle-icon-2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .header__nav--toggle-icon-3 {
+  transform: translate(0, -11px) rotate(45deg);
+}

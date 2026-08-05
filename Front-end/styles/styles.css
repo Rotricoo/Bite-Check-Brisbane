@@ -1,0 +1,220 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  box-sizing: border-box;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* ---------- HEADER STYLES */
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.header__logo img {
+  display: block;
+  width: auto;
+  height: 100px;
+  object-fit: contain;
+}
+
+.header__nav--toggle {
+  display: none;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.header__nav--menu {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.header__nav--menu-link {
+  font-weight: var(--font-light);
+  padding: var(--btn-sm-padding);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.header__nav--menu-link:hover,
+.header__nav--menu-link:active,
+.header__nav--menu-link.active-link {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.header__mobile-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* Header weather widget styles */
+
+.header__weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-darkmode);
+  padding: var(--btn-md-padding-tall);
+  background-color: var(--color-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.header__weather--container {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.header__weather--time {
+  padding-top: var(--space-tiny);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+}
+
+/* -------- Footer styles */
+
+.footer {
+  margin-bottom: 0;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.footer__left img {
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+}
+
+.footer__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.footer__menu ul {
+  text-align: left;
+  list-style: none;
+  gap: var(--space-sm);
+}
+
+.footer__menu li {
+  margin-bottom: var(--space-sm);
+}
+
+.footer__menu a {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-light);
+  text-decoration: none;
+  color: var(--color-background);
+}
+
+.footer__menu a:hover,
+.footer__menu a:active {
+  font-weight: var(--font-bold);
+}
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.footer__acknowledgement {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  gap: var(--space-xs);
+}
+
+.footer__acknowledgement h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-bold);
+  margin: 0;
+}
+
+.footer__acknowledgement p {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-lg);
+  text-align: left;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__bottom-info {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-bold);
+  line-height: var(--line-height-md);
+  text-align: center;
+}
+
+.footer__bottom-copyright {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-md);
+  text-align: center;
+}
+
+.footer__bottom-copyright a {
+  color: var(--color-background);
+  text-decoration: none;
+}
