@@ -1,0 +1,64 @@
+.
+├── Back-end
+│   ├── db.js
+│   └── package.json
+├── frontEnd
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── assets
+│   │   │   ├── brand
+│   │   │   │   ├── @Editables
+│   │   │   │   │   └── Brand.ai
+│   │   │   │   ├── Logo-horizontal-darkMode.png
+│   │   │   │   ├── Logo-horizontal.png
+│   │   │   │   ├── logo-vertical-darkMode.png
+│   │   │   │   └── logo-vertical.png
+│   │   │   ├── icons
+│   │   │   └── img
+│   │   ├── components
+│   │   │   ├── footer
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   └── footer.scss
+│   │   │   ├── header
+│   │   │   │   ├── Header.jsx
+│   │   │   │   └── header.scss
+│   │   │   └── layout
+│   │   │       └── Layout.jsx
+│   │   ├── main.jsx
+│   │   ├── pages
+│   │   │   ├── aboutUs
+│   │   │   │   └── AboutUs.jsx
+│   │   │   ├── allReviews
+│   │   │   │   └── AllReviews.jsx
+│   │   │   ├── contact
+│   │   │   │   └── Contact.jsx
+│   │   │   ├── homepage
+│   │   │   │   └── Homepage.jsx
+│   │   │   ├── studentPicks
+│   │   │   │   └── StudentPicks.jsx
+│   │   │   └── trendingSpots
+│   │   │       └── TrendingSpots.jsx
+│   │   ├── services
+│   │   └── styles
+│   │       ├── abstracts
+│   │       │   ├── animations.scss
+│   │       │   ├── functions.scss
+│   │       │   ├── mixins.scss
+│   │       │   ├── responsive.scss
+│   │       │   └── variables.scss
+│   │       ├── base
+│   │       │   ├── global.scss
+│   │       │   ├── reset.scss
+│   │       │   └── typography.scss
+│   │       └── main.scss
+│   └── vite.config.js
+└── structure.txt
+
+25 directories, 37 files

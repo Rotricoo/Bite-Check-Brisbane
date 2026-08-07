@@ -1,0 +1,117 @@
+.footer {
+  margin-top: 0;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: var(--space-lg);
+  text-align: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  &__left--img {
+    width: auto;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  &__menu ul {
+    text-align: left;
+    list-style: none;
+    gap: var(--space-sm);
+  }
+
+  &__menu li {
+    margin-bottom: var(--space-sm);
+  }
+
+  &__menu a {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-light);
+    text-decoration: none;
+    color: var(--color-background);
+  }
+
+  &__menu a:hover,
+  &__menu a:active {
+    font-weight: var(--font-bold);
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: var(--space-sm);
+  }
+
+  &__acknowledgement {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    gap: var(--space-xs);
+  }
+
+  &__acknowledgement h4 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-bold);
+    margin: 0;
+  }
+
+  &__acknowledgement p {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-lg);
+    text-align: left;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__bottom-info {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-bold);
+    line-height: var(--line-height-md);
+    text-align: center;
+  }
+
+  &__bottom-copyright {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-md);
+    text-align: center;
+  }
+
+  &__bottom-copyright a {
+    color: var(--color-background);
+    text-decoration: none;
+  }
+}
