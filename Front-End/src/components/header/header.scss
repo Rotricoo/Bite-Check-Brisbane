@@ -1,0 +1,214 @@
+/* ---------- HEADER STYLES */
+.header {
+  position: relative;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg);
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  &__logo--img {
+    display: block;
+    width: auto;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  // hide mobile panel by default
+  &__nav--toggle {
+    display: none;
+  }
+
+  &__nav--menu {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  &__nav--menu-link {
+    font-weight: var(--font-light);
+    padding: var(--btn-sm-padding);
+    border: var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  &__nav--menu-link:hover,
+  &__nav--menu-link:active,
+  &__nav--menu-link.active-link {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+
+  &__mobile-panel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  /* Header weather widget styles */
+
+  &__weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-wrap: nowrap;
+    color: var(--color-text-darkmode);
+    padding: var(--btn-md-padding-tall);
+    background-color: var(--color-tertiary);
+    border-radius: var(--radius-md);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  &__weather--container {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-xs);
+  }
+
+  &__weather--time {
+    padding-top: var(--space-tiny);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+  }
+
+  &__weather--local {
+    font-size: var(--font-size-tiny);
+    opacity: 0.5;
+    padding-top: var(--space-tiny);
+  }
+}
+
+// Responsive styles for the header component */
+// Responsive mobile size
+@media (max-width: 1024px) {
+  .header {
+    padding: var(--space-md);
+
+    &__container {
+      flex-direction: column;
+      align-items: stretch;
+      padding: var(--space-tiny) var(--space-md);
+    }
+
+    &__topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo--img {
+      height: 70px;
+      width: auto;
+    }
+
+    &__mobile-panel {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-8px);
+      transform-origin: top;
+      transition:
+        max-height 0.35s ease,
+        opacity 0.2s ease,
+        transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    &__mobile-panel.is-open {
+      max-height: 600px;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &__nav--menu {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    &__nav--toggle {
+      display: block;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    &__nav--toggle-icon {
+      width: 35px;
+      height: 5px;
+      background-color: var(--color-text);
+      margin: 6px 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__logo--img {
+      height: 60px;
+    }
+
+    &__mobile-panel {
+      flex-direction: row;
+    }
+
+    &__mobile-panel.is-open {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__mobile-panel.is-open &__nav--menu {
+      width: 100%;
+      justify-items: center;
+    }
+  }
+}
+
+// Animations for header Component
+/* Menu hamburguer animation  */
+.header {
+  &__nav--toggle-icon-1,
+  &__nav--toggle-icon-2,
+  &__nav--toggle-icon-3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  /* Rotate first bar */
+  &__nav--toggle.is-open &__nav--toggle-icon-1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  /* Fade out the second bar */
+  &__nav--toggle.is-open &__nav--toggle-icon-2 {
+    opacity: 0;
+  }
+
+  /* Rotate last bar */
+  &__nav--toggle.is-open &__nav--toggle-icon-3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+}
