@@ -32,6 +32,7 @@
   --line-height-sm: 1.25rem;
   --line-height-md: 1.5rem;
   --line-height-lg: 1.75rem;
+  --line-height-xl: 2rem;
 
   /* Spacing */
   --space-tiny: 0.25rem;
@@ -39,10 +40,14 @@
   --space-sm: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2rem;
+  --space-xl: 3rem;
 
   /* Border and radius */
   --border-tiny: 0.125rem solid var(--color-primary);
   --border: 0.15rem solid var(--color-primary);
+  --border-md: 0.3rem solid var(--color-primary);
+  --border-lg: 0.5rem solid var(--color-primary);
+  --border-lg-contrast: 0.5rem solid var(--color-accent);
   --border-darkmode: 0.3rem solid var(--color-accent-darkmode);
 
   --radius-sm: 0.5rem;

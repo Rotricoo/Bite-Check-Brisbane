@@ -7,9 +7,6 @@
 │   ├── index.html
 │   ├── package-lock.json
 │   ├── package.json
-│   ├── public
-│   │   ├── favicon.svg
-│   │   └── icons.svg
 │   ├── src
 │   │   ├── App.jsx
 │   │   ├── assets
@@ -21,7 +18,10 @@
 │   │   │   │   ├── logo-vertical-darkMode.png
 │   │   │   │   └── logo-vertical.png
 │   │   │   ├── icons
-│   │   │   └── img
+│   │   │   ├── img
+│   │   │   │   └── hero-homepage.jpg
+│   │   │   └── videos
+│   │   │       └── hero-homepage.mp4
 │   │   ├── components
 │   │   │   ├── footer
 │   │   │   │   ├── Footer.jsx
@@ -40,7 +40,8 @@
 │   │   │   ├── contact
 │   │   │   │   └── Contact.jsx
 │   │   │   ├── homepage
-│   │   │   │   └── Homepage.jsx
+│   │   │   │   ├── Homepage.jsx
+│   │   │   │   └── Homepage.scss
 │   │   │   ├── studentPicks
 │   │   │   │   └── StudentPicks.jsx
 │   │   │   └── trendingSpots
@@ -48,10 +49,8 @@
 │   │   ├── services
 │   │   └── styles
 │   │       ├── abstracts
-│   │       │   ├── animations.scss
 │   │       │   ├── functions.scss
 │   │       │   ├── mixins.scss
-│   │       │   ├── responsive.scss
 │   │       │   └── variables.scss
 │   │       ├── base
 │   │       │   ├── global.scss
@@ -61,4 +60,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-25 directories, 37 files
+25 directories, 36 files
