@@ -1,0 +1,144 @@
+// This file contains the styles for the ReviewCard component, which is used to display individual reviews in the AllReviews page and Trending Spots/Student Picks pages
+// The component has different variants for displaying reviews in a hero, list, or grid format.
+// The logic behind the component is handled in the ReviewCard.jsx file, which is located in the same directory as this file.
+// This file only contains the styles for the component, and does not contain any logic or functionality and how the component is displayed in the AllReviews page and Trending Spots/Student Picks pages.
+
+.review-card {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: var(--border-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: left;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  p,
+  h3 {
+    margin: 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: var(--review-image-position, center);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  &__category {
+    font-size: var(--font-size-tiny);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    width: fit-content;
+    padding: var(--space-tiny) var(--space-xs);
+  }
+
+  &__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+  }
+
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-top: auto;
+    font-weight: var(--font-bold);
+
+  }
+
+  &__rating {
+    color: var(--color-accent);
+  }
+
+  &--hero {
+    width: min(100%, 330px);
+  }
+
+  &--list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    height: 240px;
+
+    .review-card__content {
+      grid-column: 1;
+      grid-row: 1;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      padding: var(--space-md);
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .review-card__image {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+    }
+
+    .review-card__description {
+      margin-top: var(--space-sm);
+      margin-bottom: 0;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
+
+    .review-card__details {
+      margin-top: 0;
+      align-self: end;
+      min-width: 0;
+    }
+  }
+
+  &--grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .review-card__image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .review-card__content {
+      flex: 1;
+    }
+  }
+}

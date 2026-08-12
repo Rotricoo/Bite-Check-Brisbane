@@ -3,6 +3,25 @@
 │   ├── db.js
 │   └── package.json
 ├── Front-End
+│   ├── dist
+│   │   ├── assets
+│   │   │   ├── Logo-horizontal-darkMode-CasbF4rr.png
+│   │   │   ├── about-us-hero-Co37kaOY.jpg
+│   │   │   ├── allreviews-bg--header-QZ7ICXgu.jpg
+│   │   │   ├── henrique-profile-KWyB4JsI.jpg
+│   │   │   ├── hero-homepage-BeDb5aZm.jpg
+│   │   │   ├── hero-homepage-HjOpBymn.mp4
+│   │   │   ├── homepage-aboutUs-D7wjDWjL.png
+│   │   │   ├── homepage-studentPicks-DXSZm2Ro.jpg
+│   │   │   ├── homepage-trendingSpots-CM1QVPqe.jpg
+│   │   │   ├── index-C6Jk7Gpo.css
+│   │   │   ├── index-D1DqeLTp.js
+│   │   │   ├── logo-vertical-BMaShdZM.png
+│   │   │   ├── rodrigo-profile-CIeGtwg1.jpg
+│   │   │   ├── sushiEdo-BdZfjcbI.jpg
+│   │   │   ├── sushiHonto-DGgXCKN-.jpg
+│   │   │   └── sushiTaro-DM0ARXII.jpg
+│   │   └── index.html
 │   ├── eslint.config.js
 │   ├── index.html
 │   ├── package-lock.json
@@ -18,8 +37,25 @@
 │   │   │   │   ├── logo-vertical-darkMode.png
 │   │   │   │   └── logo-vertical.png
 │   │   │   ├── icons
+│   │   │   │   ├── homepage-news-icon.svg
+│   │   │   │   ├── socialMedia-facebook-icon.svg
+│   │   │   │   ├── socialMedia-instagram-icon.svg
+│   │   │   │   ├── socialMedia-tiktok-icon.svg
+│   │   │   │   └── socialMedia-x-icon.svg
 │   │   │   ├── img
-│   │   │   │   └── hero-homepage.jpg
+│   │   │   │   ├── about-us-hero.jpg
+│   │   │   │   ├── allreviews-bg--header.jpg
+│   │   │   │   ├── hero-homepage.jpg
+│   │   │   │   ├── homepage-aboutUs.png
+│   │   │   │   ├── homepage-studentPicks.jpg
+│   │   │   │   ├── homepage-trendingSpots.jpg
+│   │   │   │   ├── personal-pics
+│   │   │   │   │   ├── henrique-profile.jpg
+│   │   │   │   │   └── rodrigo-profile.jpg
+│   │   │   │   └── restaurant-Images
+│   │   │   │       ├── sushiEdo.jpg
+│   │   │   │       ├── sushiHonto.jpg
+│   │   │   │       └── sushiTaro.jpg
 │   │   │   └── videos
 │   │   │       └── hero-homepage.mp4
 │   │   ├── components
@@ -31,22 +67,37 @@
 │   │   │   │   └── header.scss
 │   │   │   └── layout
 │   │   │       └── Layout.jsx
+│   │   ├── data
+│   │   │   └── mockReview.js
 │   │   ├── main.jsx
 │   │   ├── pages
 │   │   │   ├── aboutUs
-│   │   │   │   └── AboutUs.jsx
+│   │   │   │   ├── AboutUs.jsx
+│   │   │   │   └── AboutUs.scss
 │   │   │   ├── allReviews
-│   │   │   │   └── AllReviews.jsx
+│   │   │   │   ├── AllReviews.jsx
+│   │   │   │   ├── AllReviews.scss
+│   │   │   │   ├── filterGroup
+│   │   │   │   │   └── FilterGroup.jsx
+│   │   │   │   └── reviewCard
+│   │   │   │       ├── ReviewCard.jsx
+│   │   │   │       └── ReviewCard.scss
 │   │   │   ├── contact
-│   │   │   │   └── Contact.jsx
+│   │   │   │   ├── Contact.jsx
+│   │   │   │   └── Contact.scss
 │   │   │   ├── homepage
 │   │   │   │   ├── Homepage.jsx
 │   │   │   │   └── Homepage.scss
+│   │   │   ├── reviewDetails
+│   │   │   │   ├── ReviewDetails.jsx
+│   │   │   │   └── ReviewDetails.scss
 │   │   │   ├── studentPicks
 │   │   │   │   └── StudentPicks.jsx
 │   │   │   └── trendingSpots
 │   │   │       └── TrendingSpots.jsx
 │   │   ├── services
+│   │   │   ├── reviewAPI.js
+│   │   │   └── reviewSearch.js
 │   │   └── styles
 │   │       ├── abstracts
 │   │       │   ├── functions.scss
@@ -60,4 +111,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-25 directories, 36 files
+33 directories, 79 files

@@ -88,11 +88,11 @@
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-  }
 
-  &__hero-content--button:hover {
-    background-color: var(--color-accent);
-    box-shadow: var(--shadow-md);
+    &:hover {
+      background-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
   }
 
   // Home Page About us Section
@@ -164,10 +164,10 @@
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-  }
 
-  &__about-us--button:hover {
-    background-color: var(--color-accent);
+    &:hover {
+      background-color: var(--color-accent);
+    }
   }
 
   // HomePage Reviews Section
@@ -245,11 +245,11 @@
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-  }
 
-  &__reviews--card-button:hover {
-    background-color: var(--color-accent);
-    box-shadow: var(--shadow-md);
+    &:hover {
+      background-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
   }
 
   &__reviews--card-button:focus {
@@ -270,16 +270,15 @@
     align-items: flex-start;
     gap: var(--space-md);
     max-width: 1150px;
-    width: 100%;
     text-align: left;
     border-radius: var(--radius-md);
     background-color: var(--color-primary);
     padding: var(--space-lg);
     box-shadow: var(--shadow-md);
-  }
 
-  &__newsletter--content:hover {
-    box-shadow: var(--shadow-lg);
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
   }
 
   &__newsletter--intro {
@@ -336,13 +335,13 @@
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-  }
 
-  &__newsletter--button:hover {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    border: 1px solid var(--color-background);
-    box-shadow: var(--shadow-md);
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-background);
+      border: 1px solid var(--color-background);
+      box-shadow: var(--shadow-md);
+    }
   }
 
   // Homepage Contact section
@@ -350,7 +349,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: calc(var(--space-xl) + var(--space-lg)) var(--space-md);
+    padding: calc(var(--space-xl) + var(--space-lg)) var(--space-md) calc(var(--space-xl) + var(--space-xl)) var(--space-md);
   }
 
   &__contact--title {
@@ -402,10 +401,10 @@
     font-size: calc(var(--font-size-md) + 0.1rem);
     color: var(--color-text);
     text-decoration: none;
-  }
 
-  &__contact--email-link:hover {
-    color: var(--color-accent);
+    &:hover {
+      color: var(--color-accent);
+    }
   }
 
   &__contact--socials {
@@ -420,10 +419,10 @@
     font-size: var(--font-size-md);
     color: var(--color-text);
     text-decoration: none;
-  }
 
-  &__contact--socials-link:hover {
-    color: var(--color-accent);
+    &:hover {
+      color: var(--color-accent);
+    }
   }
 
   &__contact--socials-icon {
@@ -468,11 +467,11 @@
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-  }
 
-  &__contact--submitPlace-button:hover {
-    background-color: var(--color-accent);
-    box-shadow: var(--shadow-md);
+    &:hover {
+      background-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
   }
 }
 

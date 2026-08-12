@@ -1,0 +1,343 @@
+.all-reviews {
+  display: flex;
+  flex-direction: column;
+
+  // All Reviews Hero Section
+  &__hero {
+    position: relative;
+    min-height: clamp(500px, 70vh, 660px);
+    overflow: hidden;
+  }
+
+  &__hero--container {
+    position: relative;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+
+  &__hero--background {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-tertiary);
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  &__hero--background--image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius-md);
+    filter: blur(3px) saturate(0);
+    mix-blend-mode: multiply;
+  }
+
+  &__hero--search--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--space-lg) * 2);
+  }
+
+  &__hero--search--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    width: 100%;
+    max-width: 700px;
+  }
+
+  &__hero--search--title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-bold);
+    color: var(--color-text-darkmode);
+  }
+
+  &__hero--search--input-container {
+    display: flex;
+    width: 100%;
+  }
+
+  &__hero--search--input-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__hero--search--input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    font-size: var(--font-size-md);
+    padding: var(--space-sm);
+    padding-right: calc(var(--space-lg) + var(--space-sm));
+    border: var(--border-md);
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  }
+
+  &__hero--search--button {
+    flex-shrink: 0;
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+    font-style: italic;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-text);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__hero--search--clear-button {
+    position: absolute;
+    top: 50%;
+    right: var(--space-xs);
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: none;
+    border-radius: var(--radius-half);
+    background-color: transparent;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-bold);
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+
+  &__hero--search--feedback {
+    margin: var(--space-sm) 0 0;
+    color: var(--color-text-darkmode);
+    font-weight: var(--font-bold);
+  }
+
+  &__hero--search--cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 330px));
+    justify-content: center;
+    gap: var(--space-lg);
+    width: 100%;
+    margin-top: var(--space-md);
+  }
+
+  // All Reviews left side content
+  // List of reviews view
+  &__content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg) calc(var(--space-xl) * 2);
+  }
+
+  &__content--cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  &__content--cards--filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  &__content--cards--label {
+    border: var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  &__content--cards--select {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-weight: var(--font-bold);
+  }
+
+  // All Reviews Grid/List of reviews view
+  // For the cards style, we're using the ReviewCard component, so we don't need to define the styles here. It's already defined in the ReviewCard.scss file. However, we can define the container styles here.
+  &__content--cards-container {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  &__content--cards-container.is-list {
+    grid-template-columns: 1fr;
+  }
+
+  &__content--cards-container.is-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  &__content--cards--load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-lg);
+  }
+
+  &__content--cards--button {
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-medium);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-text);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__content--cards--empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    border: var(--border-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  &__content--cards--empty p {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-bold);
+  }
+
+  &__content--cards--empty-button {
+    padding: var(--space-xs) var(--space-md);
+    border: none;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+  }
+
+  // All Reviews side bar content (review filters)
+  &__content--sidebar {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    border: var(--border-md);
+    border-radius: var(--radius-md);
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  &__content--sidebar--filter {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  &__content--sidebar--filter--header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  &__content--sidebar--filter--count {
+    margin: var(--space-tiny) 0 0;
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+  }
+
+  &__content--sidebar--filter--clear {
+    border: none;
+    background: none;
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__content--sidebar--filter--group-title {
+    margin: var(--space-sm) 0 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+  }
+
+  &__content--sidebar--filter--title {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-bold);
+  }
+
+  // Filter options container
+  &__content--sidebar--filter--container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  // Specific filter style options
+  &__content--sidebar--filter--options {
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--border-tiny);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-bold);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    &.is-active {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+}
