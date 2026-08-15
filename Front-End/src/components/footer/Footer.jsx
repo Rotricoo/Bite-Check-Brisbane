@@ -51,7 +51,7 @@ function Footer() {
           <p className="footer__bottom-info">A student project created for Web Development (NIT1101) - Victoria University</p>
           <p className="footer__bottom-copyright">
             © 2026 Bite Check Brisbane | <NavLink to="/privacy-policy"> Privacy Policy </NavLink> | <NavLink to="/terms-of-use">Terms of Use</NavLink> |
-            <NavLink to="/accessibility"> Accessibility </NavLink> |<NavLink to="/contact"> Contact</NavLink> |<NavLink to="/adminAcess"> Admin</NavLink>
+            <NavLink to="/accessibility"> Accessibility </NavLink> |<NavLink to="/contact"> Contact</NavLink> |<NavLink to="/admin"> Admin</NavLink>
           </p>
         </div>
       </div>

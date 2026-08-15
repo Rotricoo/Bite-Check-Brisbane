@@ -7,6 +7,7 @@ import Contact from "./pages/contact/Contact";
 import Layout from "./components/layout/Layout";
 import Homepage from "./pages/homepage/Homepage";
 import ReviewDetails from "./pages/reviewDetails/ReviewDetails";
+import AdminLogin from "./pages/Admin/AdminLogin.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/trending-spots" element={<TrendingSpots />} />
         <Route path="/student-picks" element={<StudentPicks />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<AdminLogin />} />
       </Routes>
     </Layout>
   );

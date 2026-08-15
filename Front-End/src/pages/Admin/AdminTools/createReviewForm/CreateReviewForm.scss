@@ -1,0 +1,123 @@
+.create-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  &__eyebrow {
+    width: fit-content;
+    margin: 0;
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-tiny);
+  }
+
+  &__label {
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: var(--border-tiny);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font: inherit;
+  }
+
+  &__textarea {
+    min-height: 8rem;
+    resize: vertical;
+  }
+
+  &__button {
+    width: fit-content;
+    padding: var(--space-sm) var(--space-lg);
+    border: var(--border-tiny);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font: inherit;
+    font-weight: var(--font-bold);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-accent);
+    }
+  }
+
+  &__back-button {
+    width: fit-content;
+    padding: var(--space-xs) var(--space-md);
+    border: var(--border-tiny);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--color-primary);
+    font: inherit;
+    font-weight: var(--font-bold);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: var(--border-tiny);
+  }
+
+  &__section-title {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-bold);
+  }
+
+  &__message {
+    margin: 0;
+    color: var(--color-accent);
+    font-weight: var(--font-bold);
+  }
+}
+
+@media (max-width: 700px) {
+  .create-review-form {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

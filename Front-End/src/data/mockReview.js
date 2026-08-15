@@ -34,13 +34,15 @@ export const mockReviews = [
         name: "Henrique",
         role: "Food writer",
         rating: 8.7,
+        amountSpent: "$40",
+        spentDetails: "Chef selection sushi $28 + Margarita $12",
         reviewTitle: "A moody Japanese dinner spot with strong atmosphere",
         reviewBody:
           "Honto feels designed for a slower dinner rather than a quick bite. The room is polished, the lighting is low, and the menu leans into dishes that work best when shared. It is the kind of restaurant that suits a night out where the atmosphere matters as much as the food.",
         orderedItems: [
           {
             name: "Chef selection sushi",
-            price: "$28",
+
             description: "A balanced sushi selection with clean flavours and polished presentation.",
             image: sushiHonto,
           },
@@ -50,6 +52,8 @@ export const mockReviews = [
         name: "Rodrigo",
         role: "Student reviewer",
         rating: 9.1,
+        amountSpent: "$30",
+        spentDetails: "Signature roll $18 + Soft drink $12",
         reviewTitle: "Worth saving for when you want something special",
         reviewBody:
           "This is not the cheapest student meal, but it feels worth it when you want somewhere with more personality. The food is strong, the setting feels memorable, and it works well for dinner with friends or a date night.",

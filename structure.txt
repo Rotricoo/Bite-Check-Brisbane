@@ -14,8 +14,8 @@
 │   │   │   ├── homepage-aboutUs-D7wjDWjL.png
 │   │   │   ├── homepage-studentPicks-DXSZm2Ro.jpg
 │   │   │   ├── homepage-trendingSpots-CM1QVPqe.jpg
-│   │   │   ├── index-C6Jk7Gpo.css
-│   │   │   ├── index-D1DqeLTp.js
+│   │   │   ├── index-BKzEBqql.css
+│   │   │   ├── index-D-CKoaWg.js
 │   │   │   ├── logo-vertical-BMaShdZM.png
 │   │   │   ├── rodrigo-profile-CIeGtwg1.jpg
 │   │   │   ├── sushiEdo-BdZfjcbI.jpg
@@ -71,6 +71,19 @@
 │   │   │   └── mockReview.js
 │   │   ├── main.jsx
 │   │   ├── pages
+│   │   │   ├── Admin
+│   │   │   │   ├── AdminLogin.jsx
+│   │   │   │   ├── AdminLogin.scss
+│   │   │   │   └── AdminTools
+│   │   │   │       ├── DeleteReviewTool
+│   │   │   │       │   ├── DeleteReviewTool.jsx
+│   │   │   │       │   └── DeleteReviewTool.scss
+│   │   │   │       ├── UpdateReviewTool
+│   │   │   │       │   ├── UpdateReviewTool.jsx
+│   │   │   │       │   └── UpdateReviewTool.scss
+│   │   │   │       └── createReviewForm
+│   │   │   │           ├── CreateReviewForm.jsx
+│   │   │   │           └── CreateReviewForm.scss
 │   │   │   ├── aboutUs
 │   │   │   │   ├── AboutUs.jsx
 │   │   │   │   └── AboutUs.scss
@@ -96,6 +109,7 @@
 │   │   │   └── trendingSpots
 │   │   │       └── TrendingSpots.jsx
 │   │   ├── services
+│   │   │   ├── adminAPI.js
 │   │   │   ├── reviewAPI.js
 │   │   │   └── reviewSearch.js
 │   │   └── styles
@@ -111,4 +125,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-33 directories, 79 files
+38 directories, 88 files

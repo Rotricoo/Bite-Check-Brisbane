@@ -1,0 +1,143 @@
+.admin-login {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl) clamp(var(--space-md), 6vw, calc(var(--space-xl) * 3));
+
+  &__panel {
+    width: min(100%, 1100px);
+    padding: var(--space-lg);
+    border: var(--border-md);
+    border-radius: var(--radius-md);
+    background-color: var(--color-background);
+  }
+
+  &__header {
+    max-width: 680px;
+    margin-bottom: var(--space-md);
+  }
+
+  &__eyebrow {
+    width: fit-content;
+    margin: 0 0 var(--space-xs);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1;
+  }
+
+  &__subtitle {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+  }
+
+  &__text {
+    margin: var(--space-sm) 0 0;
+    line-height: var(--line-height-lg);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    max-width: 520px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-tiny);
+  }
+
+  &__label {
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+  }
+
+  &__input {
+    width: 100%;
+    padding: var(--space-sm);
+    border: var(--border-tiny);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font: inherit;
+  }
+
+  &__error {
+    margin: 0;
+    color: var(--color-primary);
+    font-weight: var(--font-bold);
+  }
+
+  &__submit-button,
+  &__action-button,
+  &__logout-button {
+    border: var(--border-tiny);
+    border-radius: var(--radius-sm);
+    font: inherit;
+    font-weight: var(--font-bold);
+    cursor: pointer;
+  }
+
+  &__submit-button {
+    width: fit-content;
+    padding: var(--space-sm) var(--space-lg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-accent);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  &__action-button {
+    padding: var(--space-xs) var(--space-md);
+    background-color: transparent;
+    color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    &--active {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+  }
+
+  &__workspace {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: var(--border-tiny);
+  }
+
+  &__logout-button {
+    margin-top: var(--space-md);
+    padding: var(--space-xs) var(--space-md);
+    background-color: transparent;
+    color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+}
