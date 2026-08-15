@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { mockReviews } from "../../data/mockReview.js";
+import { getReviews } from "../../services/reviewAPI.js";
 
 // Import images and videos
 import henriqueProfile from "../../assets/img/personal-pics/henrique-profile.jpg";
@@ -14,10 +14,25 @@ const reviewerProfiles = {
   Rodrigo: rodrigoProfile,
 };
 
+const missingInfoText = "Information to be updated";
+
 function ReviewDetails() {
   const { slug } = useParams();
   const [selectedGalleryImage, setSelectedGalleryImage] = useState(null);
-  const review = mockReviews.find((item) => item.slug === slug);
+  const [reviews, setReviews] = useState([]);
+  const [isLoadingReview, setIsLoadingReview] = useState(true);
+
+  const review = reviews.find((item) => item.slug === slug);
+
+  useEffect(() => {
+    async function loadReview() {
+      const loadedReviews = await getReviews();
+      setReviews(loadedReviews);
+      setIsLoadingReview(false);
+    }
+
+    loadReview();
+  }, []);
 
   useEffect(() => {
     if (!selectedGalleryImage) {
@@ -36,6 +51,15 @@ function ReviewDetails() {
       window.removeEventListener("keydown", handleEscapeKey);
     };
   }, [selectedGalleryImage]);
+
+  if (isLoadingReview) {
+    return (
+      <section className="review-details review-details--empty">
+        <p className="review-details__eyebrow">Loading review</p>
+        <h1 className="review-details__title">Loading restaurant review...</h1>
+      </section>
+    );
+  }
 
   if (!review) {
     return (
@@ -61,29 +85,29 @@ function ReviewDetails() {
         <div className="review-details__copy">
           <p className="review-details__eyebrow">{review.category}</p>
           <h1 className="review-details__title">{review.restaurantName}</h1>
-          <p className="review-details__summary">{review.description}</p>
+          <p className="review-details__summary">{review.description || missingInfoText}</p>
 
           <dl className="review-details__facts">
             <div className="review-details__fact">
               <dt className="review-details__fact-label">Location</dt>
-              <dd className="review-details__fact-value">{review.location}</dd>
+              <dd className="review-details__fact-value">{review.location || missingInfoText}</dd>
             </div>
             <div className="review-details__fact">
               <dt className="review-details__fact-label">Rating</dt>
-              <dd className="review-details__fact-value">{averageRating}/10</dd>
+              <dd className="review-details__fact-value">{averageRating ? `${averageRating}/10` : missingInfoText}</dd>
             </div>
             <div className="review-details__fact">
               <dt className="review-details__fact-label">Price</dt>
-              <dd className="review-details__fact-value">{review.priceRange}</dd>
+              <dd className="review-details__fact-value">{review.priceRange || missingInfoText}</dd>
             </div>
             <div className="review-details__fact">
               <dt className="review-details__fact-label">Cuisine</dt>
-              <dd className="review-details__fact-value">{review.cuisine}</dd>
+              <dd className="review-details__fact-value">{review.cuisine || missingInfoText}</dd>
             </div>
 
             <div className="review-details__fact">
               <dt className="review-details__fact-label">Address</dt>
-              <dd className="review-details__fact-value">{review.address || review.location}</dd>
+              <dd className="review-details__fact-value">{review.address || missingInfoText}</dd>
             </div>
 
             <div className="review-details__fact">
@@ -113,7 +137,7 @@ function ReviewDetails() {
       </header>
       <section className="review-details__section">
         <p className="review-details__section-label">Overview</p>
-        <p className="review-details__section-text">{review.intro || review.description}</p>
+        <p className="review-details__section-text">{review.intro || review.description || missingInfoText}</p>
       </section>
 
       {review.galleryImages?.length > 0 && (
@@ -187,6 +211,14 @@ function ReviewDetails() {
           </section>
         );
       })}
+
+      {!review.reviewers?.length && (
+        <section className="review-details__section">
+          <p className="review-details__section-label">Detailed reviews</p>
+          <h2 className="review-details__section-title">Reviewer notes coming soon</h2>
+          <p className="review-details__section-text">Information to be updated.</p>
+        </section>
+      )}
 
       {selectedGalleryImage && (
         <div className="review-details__lightbox" role="dialog" aria-modal="true">

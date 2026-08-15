@@ -9,75 +9,16 @@ function CreateReviewForm({ onBack }) {
   async function handleCreateReview(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    const reviewData = {
-      restaurantName: formData.get("restaurantName"),
-      category: formData.get("category"),
-      cuisine: formData.get("cuisine"),
-      location: formData.get("location"),
-      address: formData.get("address"),
-      priceRange: formData.get("priceRange"),
-      description: formData.get("description"),
-      intro: formData.get("intro"),
-      image: formData.get("image"),
-      imagePosition: formData.get("imagePosition") || "center",
-      galleryImages: (formData.get("galleryImages") || "")
-        .split("\n")
-        .map((image) => image.trim())
-        .filter(Boolean),
-      keywords: (formData.get("keywords") || "")
-        .split(",")
-        .map((keyword) => keyword.trim())
-        .filter(Boolean),
-
-      tags: (formData.get("tags") || "")
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter(Boolean),
-      ratings: {
-        henrique: Number(formData.get("henriqueRating")),
-        rodrigo: Number(formData.get("rodrigoRating")),
-      },
-      reviewers: [
-        {
-          name: "Henrique",
-          rating: Number(formData.get("henriqueRating")),
-          amountSpent: formData.get("henriqueAmountSpent"),
-          spentDetails: formData.get("henriqueSpentDetails"),
-          reviewTitle: formData.get("henriqueReviewTitle"),
-          reviewBody: formData.get("henriqueReviewBody"),
-          orderedItems: [
-            {
-              name: formData.get("henriqueOrderedItem"),
-              price: formData.get("henriqueOrderedItemPrice"),
-              image: formData.get("henriqueOrderedItemImage"),
-              description: formData.get("henriqueOrderedItemDescription"),
-            },
-          ],
-        },
-        {
-          name: "Rodrigo",
-          rating: Number(formData.get("rodrigoRating")),
-          amountSpent: formData.get("rodrigoAmountSpent"),
-          spentDetails: formData.get("rodrigoSpentDetails"),
-          reviewTitle: formData.get("rodrigoReviewTitle"),
-          reviewBody: formData.get("rodrigoReviewBody"),
-          orderedItems: [
-            {
-              name: formData.get("rodrigoOrderedItem"),
-              price: formData.get("rodrigoOrderedItemPrice"),
-              image: formData.get("rodrigoOrderedItemImage"),
-              description: formData.get("rodrigoOrderedItemDescription"),
-            },
-          ],
-        },
-      ],
-    };
-
-    const result = await createReview(reviewData);
-
-    setFormMessage(result.message);
+    try {
+      const result = await createReview(formData);
+      setFormMessage(result.message);
+      form.reset();
+    } catch (error) {
+      setFormMessage(error.message);
+    }
   }
 
   return (
@@ -93,22 +34,22 @@ function CreateReviewForm({ onBack }) {
         <div className="create-review-form__grid">
           <label className="create-review-form__field">
             <span className="create-review-form__label">Restaurant name</span>
-            <input className="create-review-form__input" name="restaurantName" type="text" placeholder="Honto" />{" "}
+            <input className="create-review-form__input" name="restaurantName" type="text" placeholder="Honto" required />
           </label>
 
           <label className="create-review-form__field">
             <span className="create-review-form__label">Category</span>
-            <input className="create-review-form__input" name="category" type="text" placeholder="Japanese" />
+            <input className="create-review-form__input" name="category" type="text" placeholder="Japanese" required />
           </label>
 
           <label className="create-review-form__field">
             <span className="create-review-form__label">Cuisine</span>
-            <input className="create-review-form__input" name="cuisine" type="text" placeholder="Japanese" />
+            <input className="create-review-form__input" name="cuisine" type="text" placeholder="Japanese" required />
           </label>
 
           <label className="create-review-form__field">
             <span className="create-review-form__label">Location</span>
-            <input className="create-review-form__input" name="location" type="text" placeholder="Fortitude Valley" />
+            <input className="create-review-form__input" name="location" type="text" placeholder="Fortitude Valley" required />
           </label>
 
           <label className="create-review-form__field">
@@ -118,7 +59,7 @@ function CreateReviewForm({ onBack }) {
 
           <label className="create-review-form__field">
             <span className="create-review-form__label">Price range</span>
-            <select className="create-review-form__input" name="priceRange" defaultValue="">
+            <select className="create-review-form__input" name="priceRange" defaultValue="" required>
               <option value="" disabled>
                 Select price
               </option>
@@ -130,7 +71,7 @@ function CreateReviewForm({ onBack }) {
         </div>
         <label className="create-review-form__field">
           <span className="create-review-form__label">Short description</span>
-          <textarea className="create-review-form__textarea" name="description" placeholder="Short card description..." rows="3" />
+          <textarea className="create-review-form__textarea" name="description" placeholder="Short card description..." rows="3" required />
         </label>
         <label className="create-review-form__field">
           <span className="create-review-form__label">Overview</span>
@@ -141,8 +82,8 @@ function CreateReviewForm({ onBack }) {
 
           <div className="create-review-form__grid">
             <label className="create-review-form__field">
-              <span className="create-review-form__label">Main image URL</span>
-              <input className="create-review-form__input" name="image" type="text" placeholder="/src/assets/img/reviews/honto.jpg" />
+              <span className="create-review-form__label">Main image</span>
+              <input className="create-review-form__input" name="photo" type="file" accept="image/*" required />
             </label>
 
             <label className="create-review-form__field">
@@ -162,12 +103,12 @@ function CreateReviewForm({ onBack }) {
           <div className="create-review-form__grid">
             <label className="create-review-form__field">
               <span className="create-review-form__label">Keywords</span>
-              <input className="create-review-form__input" name="keywords" type="text" placeholder="sushi, japanese, date night" />
+              <input className="create-review-form__input" name="keywords" type="text" placeholder="sushi, japanese, date night" required />
             </label>
 
             <label className="create-review-form__field">
               <span className="create-review-form__label">Tags</span>
-              <input className="create-review-form__input" name="tags" type="text" placeholder="student pick, casual, dinner" />
+              <input className="create-review-form__input" name="tags" type="text" placeholder="student pick, casual, dinner" required />
             </label>
           </div>
         </div>
@@ -177,12 +118,12 @@ function CreateReviewForm({ onBack }) {
           <div className="create-review-form__grid">
             <label className="create-review-form__field">
               <span className="create-review-form__label">Review title</span>
-              <input className="create-review-form__input" name="henriqueReviewTitle" type="text" placeholder="A moody Japanese dinner spot" />
+              <input className="create-review-form__input" name="henriqueReviewTitle" type="text" placeholder="A moody Japanese dinner spot" required />
             </label>
 
             <label className="create-review-form__field">
               <span className="create-review-form__label">Personal rating</span>
-              <input className="create-review-form__input" name="henriqueRating" type="number" min="1" max="10" step="0.1" placeholder="8.7" />
+              <input className="create-review-form__input" name="henriqueRating" type="number" min="1" max="10" step="0.1" placeholder="8.7" required />
             </label>
 
             <label className="create-review-form__field">
@@ -198,7 +139,7 @@ function CreateReviewForm({ onBack }) {
 
           <label className="create-review-form__field">
             <span className="create-review-form__label">Review text</span>
-            <textarea className="create-review-form__textarea" name="henriqueReviewBody" placeholder="Henrique's full review..." rows="5" />
+            <textarea className="create-review-form__textarea" name="henriqueReviewBody" placeholder="Henrique's full review..." rows="5" required />
           </label>
 
           <div className="create-review-form__grid">
@@ -234,12 +175,12 @@ function CreateReviewForm({ onBack }) {
           <div className="create-review-form__grid">
             <label className="create-review-form__field">
               <span className="create-review-form__label">Review title</span>
-              <input className="create-review-form__input" name="rodrigoReviewTitle" type="text" placeholder="A moody Japanese dinner spot" />
+              <input className="create-review-form__input" name="rodrigoReviewTitle" type="text" placeholder="A moody Japanese dinner spot" required />
             </label>
 
             <label className="create-review-form__field">
               <span className="create-review-form__label">Personal rating</span>
-              <input className="create-review-form__input" name="rodrigoPersonalRating" type="number" min="1" max="10" step="0.1" placeholder="8.7" />
+              <input className="create-review-form__input" name="rodrigoRating" type="number" min="1" max="10" step="0.1" placeholder="8.7" required />
             </label>
 
             <label className="create-review-form__field">
@@ -255,7 +196,7 @@ function CreateReviewForm({ onBack }) {
 
           <label className="create-review-form__field">
             <span className="create-review-form__label">Review text</span>
-            <textarea className="create-review-form__textarea" name="rodrigoReviewBody" placeholder="Rodrigo's full review..." rows="5" />
+            <textarea className="create-review-form__textarea" name="rodrigoReviewBody" placeholder="Rodrigo's full review..." rows="5" required />
           </label>
 
           <div className="create-review-form__grid">
@@ -286,7 +227,7 @@ function CreateReviewForm({ onBack }) {
           </label>
         </div>
         <button className="create-review-form__button" type="submit">
-          Save draft preview
+          Create review{" "}
         </button>
         {formMessage && <p className="create-review-form__message">{formMessage}</p>}
       </form>

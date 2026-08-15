@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
-import { mockReviews } from "../../data/mockReview.js";
+import { useEffect, useState } from "react";
+import { getReviews } from "../../services/reviewAPI.js";
 import ReviewCard from "../allReviews/reviewCard/ReviewCard.jsx";
 import "./StudentPicks.scss";
 
 function StudentPicks() {
-  const studentPickReviews = mockReviews.filter((review) => review.tags?.includes("student pick"));
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadReviews() {
+      const loadedReviews = await getReviews();
+      setReviews(loadedReviews);
+      setIsLoading(false);
+    }
+
+    loadReviews();
+  }, []);
+
+  const studentPickReviews = reviews.filter((review) => review.tags?.includes("student-pick"));
 
   return (
     <main className="student-picks">
@@ -15,6 +29,10 @@ function StudentPicks() {
       </section>
 
       <section className="student-picks__reviews">
+        {isLoading && <p className="student-picks__status">Loading student picks...</p>}
+
+        {!isLoading && studentPickReviews.length === 0 && <p className="student-picks__status">No student picks have been added yet.</p>}
+
         {studentPickReviews.map((review) => (
           <ReviewCard key={review.id} review={review} variant="grid" />
         ))}

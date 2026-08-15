@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
-import { mockReviews } from "../../data/mockReview.js";
+import { useEffect, useState } from "react";
+import { getReviews } from "../../services/reviewAPI.js";
 import ReviewCard from "../allReviews/reviewCard/ReviewCard.jsx";
 import "./TrendingSpots.scss";
 
 function TrendingSpots() {
-  const trendingReviews = mockReviews.filter((review) => review.tags?.includes("trending"));
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    async function loadReviews() {
+      const loadedReviews = await getReviews();
+      setReviews(loadedReviews);
+      setIsLoading(false);
+    }
+
+    loadReviews();
+  }, []);
+
+  const trendingReviews = reviews.filter((review) => review.tags?.includes("trending"));
   return (
     <main className="trending-spots">
       <section className="trending-spots__hero">
@@ -15,6 +28,10 @@ function TrendingSpots() {
       </section>
 
       <section className="trending-spots__reviews">
+        {isLoading && <p className="trending-spots__status">Loading trending spots...</p>}
+
+        {!isLoading && trendingReviews.length === 0 && <p className="trending-spots__status">No trending spots have been added yet.</p>}
+
         {trendingReviews.map((review) => (
           <ReviewCard key={review.id} review={review} variant="grid" />
         ))}

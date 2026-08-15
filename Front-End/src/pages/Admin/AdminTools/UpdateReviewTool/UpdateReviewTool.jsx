@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { mockReviews } from "../../../../data/mockReview.js";
+import { useEffect, useState } from "react";
+import { getReviews } from "../../../../services/reviewAPI.js";
 import { updateReview } from "../../../../services/adminAPI.js";
 
 // Import styles
@@ -8,16 +8,27 @@ import "./UpdateReviewTool.scss";
 function UpdateReviewTool({ onBack }) {
   const [selectedReviewSlug, setSelectedReviewSlug] = useState("");
 
+  const [reviews, setReviews] = useState([]);
+
   const [isEditing, setIsEditing] = useState(false);
   const [updateMessage, setUpdateMessage] = useState("");
 
-  const selectedReview = mockReviews.find((review) => review.slug === selectedReviewSlug);
+  const selectedReview = reviews.find((review) => review.slug === selectedReviewSlug);
 
   function handleSelectReview(event) {
     setSelectedReviewSlug(event.target.value);
     setIsEditing(false);
     setUpdateMessage("");
   }
+
+  useEffect(() => {
+    async function loadReviews() {
+      const loadedReviews = await getReviews();
+      setReviews(loadedReviews);
+    }
+
+    loadReviews();
+  }, []);
 
   async function handleUpdateReview(event) {
     event.preventDefault();
@@ -34,7 +45,13 @@ function UpdateReviewTool({ onBack }) {
       cuisine: formData.get("cuisine"),
       location: formData.get("location"),
       rating: Number(formData.get("rating")),
+      priceRange: formData.get("priceRange"),
       description: formData.get("description"),
+      address: formData.get("address"),
+      websiteUrl: formData.get("websiteUrl"),
+      instagramUrl: formData.get("instagramUrl"),
+      tags: formData.get("tags"),
+      keywords: formData.get("keywords"),
     };
 
     const result = await updateReview(selectedReview.id, reviewData);
@@ -49,14 +66,14 @@ function UpdateReviewTool({ onBack }) {
 
       <p className="update-review-tool__eyebrow">Update</p>
       <h2 className="update-review-tool__title">Update an existing review</h2>
-      <p className="update-review-tool__text">Choose a review from the current mock database. Later, this list will come from PHP/MySQL.</p>
+      <p className="update-review-tool__text">Choose a review from the current database. Later, this list will come from PHP/MySQL.</p>
 
       <label className="update-review-tool__field">
         <span className="update-review-tool__label">Review post</span>
         <select className="update-review-tool__select" value={selectedReviewSlug} onChange={handleSelectReview}>
           <option value="">Select a review</option>
 
-          {mockReviews.map((review) => (
+          {reviews.map((review) => (
             <option value={review.slug} key={review.id}>
               {review.restaurantName}
             </option>
@@ -111,7 +128,7 @@ function UpdateReviewTool({ onBack }) {
               </label>
 
               <button className="update-review-tool__button" type="submit">
-                Save update placeholder
+                Save update
               </button>
 
               {updateMessage && <p className="update-review-tool__message">{updateMessage}</p>}
