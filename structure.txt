@@ -1,7 +1,15 @@
 .
 ├── Back-end
+│   ├── AllReviews.php
+│   ├── Review.php
 │   ├── db.js
-│   └── package.json
+│   ├── db.php
+│   ├── describe_reviews.php
+│   ├── list_tables.php
+│   ├── package.json
+│   ├── test_db.php
+│   └── uploads
+│       └── reviews
 ├── Front-End
 │   ├── dist
 │   │   ├── assets
@@ -14,8 +22,8 @@
 │   │   │   ├── homepage-aboutUs-D7wjDWjL.png
 │   │   │   ├── homepage-studentPicks-DXSZm2Ro.jpg
 │   │   │   ├── homepage-trendingSpots-CM1QVPqe.jpg
-│   │   │   ├── index-BKzEBqql.css
-│   │   │   ├── index-D-CKoaWg.js
+│   │   │   ├── index-ij4KoxAg.js
+│   │   │   ├── index-mmUFKG8Q.css
 │   │   │   ├── logo-vertical-BMaShdZM.png
 │   │   │   ├── rodrigo-profile-CIeGtwg1.jpg
 │   │   │   ├── sushiEdo-BdZfjcbI.jpg
@@ -105,9 +113,11 @@
 │   │   │   │   ├── ReviewDetails.jsx
 │   │   │   │   └── ReviewDetails.scss
 │   │   │   ├── studentPicks
-│   │   │   │   └── StudentPicks.jsx
+│   │   │   │   ├── StudentPicks.jsx
+│   │   │   │   └── StudentPicks.scss
 │   │   │   └── trendingSpots
-│   │   │       └── TrendingSpots.jsx
+│   │   │       ├── TrendingSpots.jsx
+│   │   │       └── TrendingSpots.scss
 │   │   ├── services
 │   │   │   ├── adminAPI.js
 │   │   │   ├── reviewAPI.js
@@ -125,4 +135,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-38 directories, 88 files
+40 directories, 96 files

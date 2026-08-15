@@ -1,9 +1,9 @@
 import "./AllReviews.scss";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 // Import components
 import ReviewCard from "./reviewCard/ReviewCard";
-import { mockReviews } from "../../data/mockReview.js";
+import { getReviews } from "../../services/reviewAPI.js";
 import { getFilteredReviews, getTopRatedSearchResults } from "../../services/reviewSearch.js";
 import FilterGroup from "./filterGroup/FilterGroup";
 
@@ -11,6 +11,9 @@ import FilterGroup from "./filterGroup/FilterGroup";
 import allreviewsHeroBackground from "../../assets/img/allreviews-bg--header.jpg";
 
 function AllReviews() {
+  const [reviews, setReviews] = useState([]);
+  const [isLoadingReviews, setIsLoadingReviews] = useState(true);
+  const [reviewsError, setReviewsError] = useState("");
   const [draftSearch, setDraftSearch] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(3);
@@ -19,6 +22,36 @@ function AllReviews() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [priceFilter, setPriceFilter] = useState("all");
   const [cuisineFilter, setCuisineFilter] = useState("all");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadReviews() {
+      try {
+        const loadedReviews = await getReviews();
+
+        if (isMounted) {
+          setReviews(loadedReviews);
+          setReviewsError("");
+        }
+      } catch (error) {
+        if (isMounted) {
+          setReviewsError("We could not load reviews right now.");
+          console.error(error);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoadingReviews(false);
+        }
+      }
+    }
+
+    loadReviews();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   function handleSearchSubmit(event) {
     event.preventDefault();
@@ -66,12 +99,12 @@ function AllReviews() {
   //Frontend-only filtering for now.
   // Later this can be replaced by a PHP API call that returns reviews from MySQL.
   const filteredReviews = useMemo(() => {
-    return getFilteredReviews(mockReviews, activeSearch, sortMode, categoryFilter, priceFilter, cuisineFilter);
-  }, [activeSearch, sortMode, categoryFilter, priceFilter, cuisineFilter]);
+    return getFilteredReviews(reviews, activeSearch, sortMode, categoryFilter, priceFilter, cuisineFilter);
+  }, [reviews, activeSearch, sortMode, categoryFilter, priceFilter, cuisineFilter]);
 
   const heroSearch = useMemo(() => {
-    return getTopRatedSearchResults(mockReviews, activeSearch, 3);
-  }, [activeSearch]);
+    return getTopRatedSearchResults(reviews, activeSearch, 3);
+  }, [reviews, activeSearch]);
 
   const heroResults = heroSearch.results;
   const heroSearchMessage = heroSearch.message;
@@ -83,19 +116,19 @@ function AllReviews() {
   const hasActiveSearchOrFilters = activeSearch || hasActiveFilters;
 
   const categoryOptions = useMemo(() => {
-    const categories = mockReviews.map((review) => review.category);
+    const categories = reviews.map((review) => review.category);
     return ["all", ...new Set(categories)];
-  }, []);
+  }, [reviews]);
 
   const priceOptions = useMemo(() => {
-    const prices = mockReviews.map((review) => review.priceRange);
+    const prices = reviews.map((review) => review.priceRange);
     return ["all", ...new Set(prices)];
-  }, []);
+  }, [reviews]);
 
   const cuisineOptions = useMemo(() => {
-    const cuisines = mockReviews.map((review) => review.cuisine);
+    const cuisines = reviews.map((review) => review.cuisine);
     return ["all", ...new Set(cuisines)];
-  }, []);
+  }, [reviews]);
 
   return (
     <div className="all-reviews">
@@ -142,6 +175,9 @@ function AllReviews() {
 
       <div className="all-reviews__content">
         <div className="all-reviews__content--cards">
+          {isLoadingReviews && <p className="all-reviews__content--status">Loading reviews...</p>}
+          {reviewsError && <p className="all-reviews__content--status">{reviewsError}</p>}
+
           <div className="all-reviews__content--cards--filters">
             <label htmlFor="sort-select" className="all-reviews__content--cards--label">
               <select id="sort-select" className="all-reviews__content--cards--select" value={sortMode} onChange={(event) => setSortMode(event.target.value)}>

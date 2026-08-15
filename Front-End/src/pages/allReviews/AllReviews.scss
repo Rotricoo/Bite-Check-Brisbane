@@ -146,6 +146,12 @@
     padding: var(--space-lg) calc(var(--space-xl) * 2);
   }
 
+  &__content--status {
+    margin: 0;
+    color: var(--color-accent);
+    font-weight: var(--font-bold);
+  }
+
   &__content--cards {
     display: flex;
     flex-direction: column;

@@ -18,9 +18,12 @@ function AboutUs() {
         <div className="about-us__hero--info">
           <h1 className="about-us__hero--title">About Us</h1>
           <p className="about-us__hero--description">
-            We are two students exploring Brisbane through food. This blog was created to share honest reviews of restaurants, cafes, and trending food spots
-            from a student perspective. Instead of only showing perfect photos or viral places, we focus on what the experience is really like: price, taste,
-            atmosphere, location, and whether the place is actually worth the hype.
+            Bite Check Brisbane is a student food blog built by Henrique and Rodrigo. We visit restaurants, cafes, and casual food spots around Brisbane, then
+            write about what the experience is actually like: the food, the price, the atmosphere, the location, and whether we would go back.
+          </p>
+
+          <p className="about-us__hero--description">
+            Our goal is simple: help other students and young locals choose places that feel worth their time and money.
           </p>
         </div>
         <div className="about-us__hero--image-container">
@@ -38,40 +41,32 @@ function AboutUs() {
           </div>
           <div className="about-us__team-member--infos">
             <h3 className="about-us__team-member--name">Henrique Alves</h3>
-            <p className="about-us__team-member--role">Co-founder & Food Enthusiast</p>
-            <div className="about-us__team-member--details-container">
-              <p className="about-us__team-member--details">Brazilian - IT Student</p>
+            <div className="about-us__team-member--role-and-details">
+              <p className="about-us__team-member--role">Co-founder & Food Reviewer | </p>
+              <p className="about-us__team-member--details">Brazilian · IT Student</p>
             </div>
             <p className="about-us__team-member--description">
-              Henrique is a passionate foodie with a keen eye for detail. He loves trying new dishes and sharing his experiences with the community.
+              Henrique focuses on flavour, atmosphere, and the small details that make a restaurant feel memorable. He is usually the one noticing service,
+              presentation, and whether the experience matches the hype.
             </p>
-          </div>
-          <div className="about-us__team-member--gallery">
-            <img className="about-us__team-member-images"></img>
-            <img className="about-us__team-member-images"></img>
-            <img className="about-us__team-member-images"></img>
           </div>
         </div>
 
         <div className="about-us__divider"></div>
 
         <div className="about-us__team-member">
-          <div className="about-us__team-member--gallery">
-            <img className="about-us__team-member-images"></img>
-            <img className="about-us__team-member-images"></img>
-            <img className="about-us__team-member-images"></img>
-          </div>
           <div className="about-us__team-member--image-container">
             <img src={rodrigoProfileImage} alt="Rodrigo profile picture" className="about-us__team-member--image" />
           </div>
           <div className="about-us__team-member--infos">
             <h3 className="about-us__team-member--name">Rodrigo Silva</h3>
-            <p className="about-us__team-member--role">Co-founder & Travel Enthusiast</p>
-            <div className="about-us__team-member--details-container">
-              <p className="about-us__team-member--details">Brazilian - IT Student</p>
+            <div className="about-us__team-member--role-and-details">
+              <p className="about-us__team-member--role">Co-founder & Experience Reviewer |</p>
+              <p className="about-us__team-member--details">Brazilian · IT Student</p>
             </div>
             <p className="about-us__team-member--description">
-              Rodrigo is a travel enthusiast who loves exploring new places and sharing his adventures with the community.
+              Rodrigo looks at the full visit: location, value, comfort, and whether a place works for students. He cares about honest recommendations that are
+              useful beyond a nice photo.
             </p>
           </div>
         </div>

@@ -19,12 +19,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // Use PDO if available, otherwise fall back to MySQLi
 try {
 	if (isset($pdo) && $pdo instanceof PDO) {
-		$sql = 'SELECT id_review AS id, title, review AS summary, created_at FROM reviews ORDER BY created_at DESC';
+		$sql = 'SELECT 
+  id_review AS id,
+  title,
+  review AS summary,
+  author,
+  photo,
+  created_at,
+  category,
+  cuisine,
+  location,
+  rating,
+  price_range,
+  slug,
+  tags,
+  keywords,
+  image_position,
+  address,
+  website_url,
+  instagram_url
+FROM reviews
+ORDER BY created_at DESC';
 		$stmt = $pdo->query($sql);
 		$reviews = $stmt->fetchAll();
 		echo json_encode($reviews ?? []);
 	} elseif (isset($mysqli) && $mysqli instanceof mysqli) {
-		$result = $mysqli->query('SELECT id_review AS id, title, review AS summary, created_at FROM reviews ORDER BY created_at DESC');
+		$result = $mysqli->query('SELECT 
+  id_review AS id,
+  title,
+  review AS summary,
+  author,
+  photo,
+  created_at,
+  category,
+  cuisine,
+  location,
+  rating,
+  price_range,
+  slug,
+  tags,
+  keywords,
+  image_position,
+  address,
+  website_url,
+  instagram_url
+FROM reviews
+ORDER BY created_at DESC');
 		$reviews = [];
 		if ($result) {
 			while ($row = $result->fetch_assoc()) {
