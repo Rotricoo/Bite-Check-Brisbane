@@ -18,7 +18,7 @@ function StudentPicks() {
     loadReviews();
   }, []);
 
-  const studentPickReviews = reviews.filter((review) => review.tags?.includes("student-pick"));
+  const studentPickReviews = reviews.filter((review) => review.tags?.includes("student pick"));
 
   return (
     <main className="student-picks">

@@ -85,5 +85,23 @@ function mapApiReviewToReview(apiReview) {
     slug: apiReview.slug || mockFallback?.slug || createSlug(restaurantName, apiReview.id || apiReview.id_review),
     image: getImageUrl(apiReview.photo || apiReview.image || apiReview.image_url, mockFallback?.image || mockReviews[0].image),
     imagePosition: apiReview.imagePosition || apiReview.image_position || mockFallback?.imagePosition || "center",
+    reviewers: [
+      {
+        name: "Henrique",
+        rating: Number(apiReview.henrique_rating || 0),
+        amountSpent: apiReview.henrique_amount_spent,
+        spentDetails: apiReview.henrique_spent_details,
+        reviewTitle: apiReview.henrique_review_title,
+        reviewBody: apiReview.henrique_review_body,
+      },
+      {
+        name: "Rodrigo",
+        rating: Number(apiReview.rodrigo_rating || 0),
+        amountSpent: apiReview.rodrigo_amount_spent,
+        spentDetails: apiReview.rodrigo_spent_details,
+        reviewTitle: apiReview.rodrigo_review_title,
+        reviewBody: apiReview.rodrigo_review_body,
+      },
+    ].filter((reviewer) => reviewer.reviewTitle || reviewer.reviewBody),
   };
 }

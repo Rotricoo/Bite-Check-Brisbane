@@ -37,7 +37,17 @@ try {
   image_position,
   address,
   website_url,
-  instagram_url
+  instagram_url,
+  henrique_review_title,
+  henrique_review_body,
+  henrique_rating,
+  henrique_amount_spent,
+  henrique_spent_details,
+  rodrigo_review_title,
+  rodrigo_review_body,
+  rodrigo_rating,
+  rodrigo_amount_spent,
+  rodrigo_spent_details
 FROM reviews
 ORDER BY created_at DESC';
 		$stmt = $pdo->query($sql);
@@ -62,7 +72,17 @@ ORDER BY created_at DESC';
   image_position,
   address,
   website_url,
-  instagram_url
+  instagram_url,
+  henrique_review_title,
+  henrique_review_body,
+  henrique_rating,
+  henrique_amount_spent,
+  henrique_spent_details,
+  rodrigo_review_title,
+  rodrigo_review_body,
+  rodrigo_rating,
+  rodrigo_amount_spent,
+  rodrigo_spent_details
 FROM reviews
 ORDER BY created_at DESC');
 		$reviews = [];

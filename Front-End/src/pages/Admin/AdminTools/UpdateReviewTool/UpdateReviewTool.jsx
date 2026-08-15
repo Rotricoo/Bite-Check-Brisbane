@@ -66,7 +66,7 @@ function UpdateReviewTool({ onBack }) {
 
       <p className="update-review-tool__eyebrow">Update</p>
       <h2 className="update-review-tool__title">Update an existing review</h2>
-      <p className="update-review-tool__text">Choose a review from the current database. Later, this list will come from PHP/MySQL.</p>
+      <p className="update-review-tool__text">Choose a review to update</p>
 
       <label className="update-review-tool__field">
         <span className="update-review-tool__label">Review post</span>

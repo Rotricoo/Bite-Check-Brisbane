@@ -87,7 +87,17 @@ try {
         image_position,
         address,
         website_url,
-        instagram_url
+        instagram_url,
+        henrique_review_title,
+        henrique_review_body,   
+        henrique_rating,
+        henrique_amount_spent,
+        henrique_spent_details,
+        rodrigo_review_title,
+        rodrigo_review_body,
+        rodrigo_rating,
+        rodrigo_amount_spent,
+        rodrigo_spent_details
     ) VALUES (
         :title,
         :review,
@@ -104,7 +114,17 @@ try {
         :image_position,
         :address,
         :website_url,
-        :instagram_url
+        :instagram_url,
+        :henrique_review_title,
+        :henrique_review_body,
+        :henrique_rating,
+        :henrique_amount_spent,
+        :henrique_spent_details,
+        :rodrigo_review_title,
+        :rodrigo_review_body,
+        :rodrigo_rating,
+        :rodrigo_amount_spent,
+        :rodrigo_spent_details
     )';
 
     $stmt = $pdo->prepare($sql);
@@ -126,6 +146,16 @@ try {
         ':address' => $_POST['address'] ?? null,
         ':website_url' => $_POST['websiteUrl'] ?? null,
         ':instagram_url' => $_POST['instagramUrl'] ?? null,
+        ':henrique_review_title' => $_POST['henriqueReviewTitle'] ?? null,
+        ':henrique_review_body' => $_POST['henriqueReviewBody'] ?? null,
+        ':henrique_rating' => $henriqueRating,
+        ':henrique_amount_spent' => $_POST['henriqueAmountSpent'] ?? null,
+        ':henrique_spent_details' => $_POST['henriqueSpentDetails'] ?? null,
+        ':rodrigo_review_title' => $_POST['rodrigoReviewTitle'] ?? null,
+        ':rodrigo_review_body' => $_POST['rodrigoReviewBody'] ?? null,
+        ':rodrigo_rating' => $rodrigoRating,
+        ':rodrigo_amount_spent' => $_POST['rodrigoAmountSpent'] ?? null,
+        ':rodrigo_spent_details' => $_POST['rodrigoSpentDetails'] ?? null,
     ]);
 
     echo json_encode([
