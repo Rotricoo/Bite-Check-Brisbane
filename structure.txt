@@ -1,7 +1,11 @@
 .
 ├── Back-end
 │   ├── AllReviews.php
+│   ├── CreateContact.php
+│   ├── CreateReview.php
+│   ├── DeleteReview.php
 │   ├── Review.php
+│   ├── UpdateReview.php
 │   ├── db.js
 │   ├── db.php
 │   ├── describe_reviews.php
@@ -10,6 +14,10 @@
 │   ├── test_db.php
 │   └── uploads
 │       └── reviews
+│           ├── bella-roma.jpg
+│           ├── honto.jpg
+│           ├── sushi-edo.jpg
+│           └── taros-ramen.jpg
 ├── Front-End
 │   ├── dist
 │   │   ├── assets
@@ -22,8 +30,8 @@
 │   │   │   ├── homepage-aboutUs-D7wjDWjL.png
 │   │   │   ├── homepage-studentPicks-DXSZm2Ro.jpg
 │   │   │   ├── homepage-trendingSpots-CM1QVPqe.jpg
-│   │   │   ├── index-ij4KoxAg.js
-│   │   │   ├── index-mmUFKG8Q.css
+│   │   │   ├── index-5QyTmTHb.js
+│   │   │   ├── index-ZUL8xETQ.css
 │   │   │   ├── logo-vertical-BMaShdZM.png
 │   │   │   ├── rodrigo-profile-CIeGtwg1.jpg
 │   │   │   ├── sushiEdo-BdZfjcbI.jpg
@@ -120,6 +128,7 @@
 │   │   │       └── TrendingSpots.scss
 │   │   ├── services
 │   │   │   ├── adminAPI.js
+│   │   │   ├── contactAPI.js
 │   │   │   ├── reviewAPI.js
 │   │   │   └── reviewSearch.js
 │   │   └── styles
@@ -135,4 +144,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-40 directories, 96 files
+40 directories, 105 files
