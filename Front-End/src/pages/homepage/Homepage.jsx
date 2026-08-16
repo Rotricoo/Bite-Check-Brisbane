@@ -1,5 +1,7 @@
 import "./Homepage.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { subscribeToNewsletter } from "../../services/newsletterAPI.js";
 //videos and images
 import heroVideo from "../../assets/videos/hero-homepage.mp4";
 import heroImage from "../../assets/img/hero-homepage.jpg";
@@ -14,6 +16,33 @@ import twitterIcon from "../../assets/icons/socialMedia-x-icon.svg";
 import tiktokIcon from "../../assets/icons/socialMedia-tiktok-icon.svg";
 
 function Homepage() {
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  async function handleNewsletterSubmit(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const email = formData.get("newsletterEmail").trim();
+
+    if (!isValidEmail(email)) {
+      setNewsletterMessage("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const result = await subscribeToNewsletter(email);
+      setNewsletterMessage(result.message);
+      form.reset();
+    } catch (error) {
+      setNewsletterMessage(error.message);
+    }
+  }
+
   return (
     <>
       <section className="homepage">
@@ -103,12 +132,14 @@ function Homepage() {
                 </p>
               </div>
             </div>
-            <form className="homepage__newsletter--form">
-              <input type="text" placeholder="Enter your name" aria-label="Enter your name" />
-              <input type="email" placeholder="Enter your email" aria-label="Enter your email" />
+            <form className="homepage__newsletter--form" onSubmit={handleNewsletterSubmit}>
+              <input name="newsletterEmail" type="email" placeholder="Enter your email" aria-label="Enter your email" required />
+
               <button type="submit" className="homepage__newsletter--button">
-                Join the List
+                Subscribe
               </button>
+
+              {newsletterMessage && <p className="homepage__newsletter--message">{newsletterMessage}</p>}
             </form>
           </div>
         </div>
