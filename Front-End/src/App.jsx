@@ -8,6 +8,7 @@ import Layout from "./components/layout/Layout";
 import Homepage from "./pages/homepage/Homepage";
 import ReviewDetails from "./pages/reviewDetails/ReviewDetails";
 import AdminLogin from "./pages/Admin/AdminLogin.jsx";
+import LegalPage from "./pages/legal/LegalPage.jsx";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <Route path="/student-picks" element={<StudentPicks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/privacy-policy" element={<LegalPage page="privacy" />} />
+        <Route path="/terms-of-use" element={<LegalPage page="terms" />} />
+        <Route path="/accessibility" element={<LegalPage page="accessibility" />} />
       </Routes>
     </Layout>
   );

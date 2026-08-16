@@ -21,6 +21,7 @@ function AboutUs() {
             Bite Check Brisbane is a student food blog built by Henrique and Rodrigo. We visit restaurants, cafes, and casual food spots around Brisbane, then
             write about what the experience is actually like: the food, the price, the atmosphere, the location, and whether we would go back.
           </p>
+          <br />
 
           <p className="about-us__hero--description">
             Our goal is simple: help other students and young locals choose places that feel worth their time and money.
@@ -42,7 +43,7 @@ function AboutUs() {
           <div className="about-us__team-member--infos">
             <h3 className="about-us__team-member--name">Henrique Alves</h3>
             <div className="about-us__team-member--role-and-details">
-              <p className="about-us__team-member--role">Co-founder & Food Reviewer | </p>
+              <p className="about-us__team-member--role">Co-founder & Food Reviewer</p>
               <p className="about-us__team-member--details">Brazilian · IT Student</p>
             </div>
             <p className="about-us__team-member--description">
@@ -61,7 +62,7 @@ function AboutUs() {
           <div className="about-us__team-member--infos">
             <h3 className="about-us__team-member--name">Rodrigo Silva</h3>
             <div className="about-us__team-member--role-and-details">
-              <p className="about-us__team-member--role">Co-founder & Experience Reviewer |</p>
+              <p className="about-us__team-member--role">Co-founder & Experience Reviewer</p>
               <p className="about-us__team-member--details">Brazilian · IT Student</p>
             </div>
             <p className="about-us__team-member--description">

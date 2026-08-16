@@ -30,7 +30,8 @@ function CreateReviewForm({ onBack }) {
       <h2 className="create-review-form__title">Create a new review post</h2>
 
       <form className="create-review-form__form" onSubmit={handleCreateReview}>
-        {" "}
+        <p className="create-review-form__required-note">Fields marked with * are required.</p>
+
         <div className="create-review-form__grid">
           <label className="create-review-form__field">
             <span className="create-review-form__label">Restaurant name</span>

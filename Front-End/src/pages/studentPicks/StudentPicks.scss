@@ -9,7 +9,7 @@
   }
 
   &__eyebrow {
-    margin: 0 0 var(--space-xs);
+    margin: 0 0 var(--space-md);
     color: var(--color-accent);
     font-size: var(--font-size-sm);
     font-weight: var(--font-bold);
@@ -96,13 +96,40 @@
 }
 
 @media (max-width: 700px) {
-  .trending-spots {
+  .student-picks {
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-md);
+
+    &__hero {
+      max-width: 100%;
+    }
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__intro {
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-lg);
+    }
+
     &__cta {
       grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    &__cta-title {
+      font-size: 2rem;
+      line-height: 1.1;
     }
 
     &__cta-actions {
       justify-content: flex-start;
+    }
+
+    &__cta-link {
+      width: 100%;
+      text-align: center;
     }
   }
 }

@@ -79,12 +79,16 @@ function mapApiReviewToReview(apiReview) {
     rating: Number(apiReview.rating || mockFallback?.rating || 0),
     priceRange: apiReview.priceRange || apiReview.price_range || mockFallback?.priceRange || "$$",
     description: apiReview.description || apiReview.summary || apiReview.review || mockFallback?.description || "",
+    intro: apiReview.intro || mockFallback?.intro || "",
     createdAt: apiReview.createdAt || apiReview.created_at || mockFallback?.createdAt || new Date().toISOString().slice(0, 10),
     keywords: parseList(apiReview.keywords || mockFallback?.keywords),
     tags: parseList(apiReview.tags || mockFallback?.tags),
     slug: apiReview.slug || mockFallback?.slug || createSlug(restaurantName, apiReview.id || apiReview.id_review),
     image: getImageUrl(apiReview.photo || apiReview.image || apiReview.image_url, mockFallback?.image || mockReviews[0].image),
     imagePosition: apiReview.imagePosition || apiReview.image_position || mockFallback?.imagePosition || "center",
+    address: apiReview.address || mockFallback?.address || "",
+    websiteUrl: apiReview.websiteUrl || apiReview.website_url || mockFallback?.websiteUrl || "",
+    instagramUrl: apiReview.instagramUrl || apiReview.instagram_url || mockFallback?.instagramUrl || "",
     reviewers: [
       {
         name: "Henrique",

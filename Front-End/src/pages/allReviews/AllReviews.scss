@@ -267,6 +267,14 @@
     padding: var(--space-lg);
   }
 
+  &__content--sidebar--panel {
+    display: block;
+  }
+
+  &__content--sidebar--toggle {
+    display: none;
+  }
+
   &__content--sidebar--filter {
     display: flex;
     flex-direction: column;
@@ -344,6 +352,112 @@
       border-color: var(--color-accent);
       color: var(--color-white);
       box-shadow: var(--shadow-sm);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .all-reviews {
+    &__hero {
+      min-height: auto;
+    }
+
+    &__hero--search--container {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    &__hero--search--content {
+      max-width: 100%;
+    }
+
+    &__hero--search--title {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-md);
+    }
+
+    &__hero--search--input-container {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    &__hero--search--input {
+      border-radius: var(--radius-sm);
+    }
+
+    &__hero--search--button {
+      width: 100%;
+      border-radius: var(--radius-sm);
+    }
+
+    &__hero--search--feedback {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-md);
+    }
+
+    &__hero--search--cards-container {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      max-width: 330px;
+      margin: var(--space-md) auto 0;
+    }
+
+    &__content {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    &__content--cards--filters {
+      align-items: stretch;
+      gap: var(--space-sm);
+    }
+
+    &__content--cards--label,
+    &__content--cards--select {
+      width: 100%;
+    }
+
+    &__content--cards-container.is-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+
+    &__content--sidebar {
+      order: -1;
+      padding: var(--space-md);
+      gap: var(--space-md);
+    }
+
+    &__content--sidebar--toggle {
+      display: block;
+      width: 100%;
+      padding: var(--space-xs) var(--space-sm);
+      border: var(--border-tiny);
+      border-radius: var(--radius-sm);
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font-weight: var(--font-bold);
+      cursor: pointer;
+    }
+
+    &__content--sidebar--panel {
+      display: none;
+
+      &.is-open {
+        display: block;
+      }
+    }
+
+    &__content--sidebar--filter--header {
+      align-items: center;
+    }
+
+    &__content--sidebar--filter--container {
+      gap: var(--space-xs);
+    }
+
+    &__content--sidebar--filter--options {
+      padding: var(--space-xs) var(--space-sm);
     }
   }
 }

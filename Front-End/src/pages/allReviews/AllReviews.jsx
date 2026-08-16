@@ -22,6 +22,7 @@ function AllReviews() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [priceFilter, setPriceFilter] = useState("all");
   const [cuisineFilter, setCuisineFilter] = useState("all");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -220,41 +221,49 @@ function AllReviews() {
         </div>
 
         <div className="all-reviews__content--sidebar">
-          <div className="all-reviews__content--sidebar--filter">
-            <div className="all-reviews__content--sidebar--filter--header">
-              <div>
-                <p className="all-reviews__content--sidebar--filter--title">Filters</p>
-                <p className="all-reviews__content--sidebar--filter--count">{filteredReviews.length} results</p>
+          <button type="button" className="all-reviews__content--sidebar--toggle" onClick={() => setIsFilterOpen((currentValue) => !currentValue)}>
+            {isFilterOpen ? "Hide filters" : "Show filters"}
+          </button>
+
+          <div className={`all-reviews__content--sidebar--panel ${isFilterOpen ? "is-open" : ""}`}>
+            <div className="all-reviews__content--sidebar--filter">
+              <div className="all-reviews__content--sidebar--filter--header">
+                <div>
+                  <p className="all-reviews__content--sidebar--filter--title">Filters</p>
+                  <p className="all-reviews__content--sidebar--filter--count">{filteredReviews.length} results</p>
+                </div>
+
+                {hasActiveFilters && (
+                  <button className="all-reviews__content--sidebar--filter--clear" onClick={handleClearFilters}>
+                    Clear
+                  </button>
+                )}
               </div>
 
-              {hasActiveFilters && (
-                <button className="all-reviews__content--sidebar--filter--clear" onClick={handleClearFilters}>
-                  Clear
-                </button>
-              )}
-            </div>
-            <FilterGroup
-              title="Category"
-              options={categoryOptions}
-              activeOption={categoryFilter}
-              getLabel={(category) => (category === "all" ? "All" : category)}
-              onChange={handleCategoryFilterChange}
-            />
+              <FilterGroup
+                title="Category"
+                options={categoryOptions}
+                activeOption={categoryFilter}
+                getLabel={(category) => (category === "all" ? "All" : category)}
+                onChange={handleCategoryFilterChange}
+              />
 
-            <FilterGroup
-              title="Cuisine"
-              options={cuisineOptions}
-              activeOption={cuisineFilter}
-              getLabel={(cuisine) => (cuisine === "all" ? "All cuisines" : cuisine)}
-              onChange={handleCuisineFilterChange}
-            />
-            <FilterGroup
-              title="Price"
-              options={priceOptions}
-              activeOption={priceFilter}
-              getLabel={(priceRange) => (priceRange === "all" ? "All prices" : priceRange)}
-              onChange={handlePriceFilterChange}
-            />
+              <FilterGroup
+                title="Cuisine"
+                options={cuisineOptions}
+                activeOption={cuisineFilter}
+                getLabel={(cuisine) => (cuisine === "all" ? "All cuisines" : cuisine)}
+                onChange={handleCuisineFilterChange}
+              />
+
+              <FilterGroup
+                title="Price"
+                options={priceOptions}
+                activeOption={priceFilter}
+                getLabel={(priceRange) => (priceRange === "all" ? "All prices" : priceRange)}
+                onChange={handlePriceFilterChange}
+              />
+            </div>
           </div>
         </div>
       </div>
