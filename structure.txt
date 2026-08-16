@@ -6,6 +6,8 @@
 │   ├── DeleteReview.php
 │   ├── Review.php
 │   ├── UpdateReview.php
+│   ├── db.config.example.php
+│   ├── db.config.php
 │   ├── db.js
 │   ├── db.php
 │   ├── describe_reviews.php
@@ -15,7 +17,9 @@
 │   └── uploads
 │       └── reviews
 │           ├── bella-roma.jpg
+│           ├── chad-montano-gfcyhore48-unsplash-1786841966.jpg
 │           ├── honto.jpg
+│           ├── jakub-kapusnak-4f4yzfdmleu-unsplash-1786843916.jpg
 │           ├── sushi-edo.jpg
 │           └── taros-ramen.jpg
 ├── Front-End
@@ -30,13 +34,10 @@
 │   │   │   ├── homepage-aboutUs-D7wjDWjL.png
 │   │   │   ├── homepage-studentPicks-DXSZm2Ro.jpg
 │   │   │   ├── homepage-trendingSpots-CM1QVPqe.jpg
-│   │   │   ├── index-5QyTmTHb.js
-│   │   │   ├── index-ZUL8xETQ.css
+│   │   │   ├── index-B8qAiUlK.js
+│   │   │   ├── index-CzRay2Jh.css
 │   │   │   ├── logo-vertical-BMaShdZM.png
-│   │   │   ├── rodrigo-profile-CIeGtwg1.jpg
-│   │   │   ├── sushiEdo-BdZfjcbI.jpg
-│   │   │   ├── sushiHonto-DGgXCKN-.jpg
-│   │   │   └── sushiTaro-DM0ARXII.jpg
+│   │   │   └── rodrigo-profile-CIeGtwg1.jpg
 │   │   └── index.html
 │   ├── eslint.config.js
 │   ├── index.html
@@ -83,8 +84,6 @@
 │   │   │   │   └── header.scss
 │   │   │   └── layout
 │   │   │       └── Layout.jsx
-│   │   ├── data
-│   │   │   └── mockReview.js
 │   │   ├── main.jsx
 │   │   ├── pages
 │   │   │   ├── Admin
@@ -117,6 +116,9 @@
 │   │   │   ├── homepage
 │   │   │   │   ├── Homepage.jsx
 │   │   │   │   └── Homepage.scss
+│   │   │   ├── legal
+│   │   │   │   ├── LegalPage.jsx
+│   │   │   │   └── LegalPage.scss
 │   │   │   ├── reviewDetails
 │   │   │   │   ├── ReviewDetails.jsx
 │   │   │   │   └── ReviewDetails.scss
@@ -144,4 +146,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-40 directories, 105 files
+40 directories, 107 files
