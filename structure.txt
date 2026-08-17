@@ -1,7 +1,9 @@
 .
 ├── Back-end
+│   ├── AdminLogin.php
 │   ├── AllReviews.php
 │   ├── CreateContact.php
+│   ├── CreateNewsletterSubscriber.php
 │   ├── CreateReview.php
 │   ├── DeleteReview.php
 │   ├── Review.php
@@ -34,15 +36,20 @@
 │   │   │   ├── homepage-aboutUs-D7wjDWjL.png
 │   │   │   ├── homepage-studentPicks-DXSZm2Ro.jpg
 │   │   │   ├── homepage-trendingSpots-CM1QVPqe.jpg
-│   │   │   ├── index-B8qAiUlK.js
-│   │   │   ├── index-CzRay2Jh.css
+│   │   │   ├── index-CY8cppwP.js
+│   │   │   ├── index-DInjFwHL.css
 │   │   │   ├── logo-vertical-BMaShdZM.png
-│   │   │   └── rodrigo-profile-CIeGtwg1.jpg
+│   │   │   ├── react-vendor-Cnx-sBF5.js
+│   │   │   ├── rodrigo-profile-CIeGtwg1.jpg
+│   │   │   └── rolldown-runtime-CbXtAM7H.js
+│   │   ├── favicon.png
 │   │   └── index.html
 │   ├── eslint.config.js
 │   ├── index.html
 │   ├── package-lock.json
 │   ├── package.json
+│   ├── public
+│   │   └── favicon.png
 │   ├── src
 │   │   ├── App.jsx
 │   │   ├── assets
@@ -66,13 +73,9 @@
 │   │   │   │   ├── homepage-aboutUs.png
 │   │   │   │   ├── homepage-studentPicks.jpg
 │   │   │   │   ├── homepage-trendingSpots.jpg
-│   │   │   │   ├── personal-pics
-│   │   │   │   │   ├── henrique-profile.jpg
-│   │   │   │   │   └── rodrigo-profile.jpg
-│   │   │   │   └── restaurant-Images
-│   │   │   │       ├── sushiEdo.jpg
-│   │   │   │       ├── sushiHonto.jpg
-│   │   │   │       └── sushiTaro.jpg
+│   │   │   │   └── personal-pics
+│   │   │   │       ├── henrique-profile.jpg
+│   │   │   │       └── rodrigo-profile.jpg
 │   │   │   └── videos
 │   │   │       └── hero-homepage.mp4
 │   │   ├── components
@@ -131,6 +134,7 @@
 │   │   ├── services
 │   │   │   ├── adminAPI.js
 │   │   │   ├── contactAPI.js
+│   │   │   ├── newsletterAPI.js
 │   │   │   ├── reviewAPI.js
 │   │   │   └── reviewSearch.js
 │   │   └── styles
@@ -146,4 +150,4 @@
 │   └── vite.config.js
 └── structure.txt
 
-40 directories, 107 files
+40 directories, 111 files

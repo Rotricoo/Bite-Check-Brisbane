@@ -30,3 +30,54 @@ body {
 main {
   flex: 1;
 }
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .header,
+  .footer,
+  .homepage__newsletter,
+  .homepage__contact,
+  video,
+  button {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  .homepage__hero,
+  .homepage__section,
+  .homepage__picks {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
