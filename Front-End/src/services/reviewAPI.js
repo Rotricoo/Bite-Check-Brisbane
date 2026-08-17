@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 const ALL_REVIEWS_ENDPOINT = `${API_BASE_URL}/AllReviews.php`;
 
 export async function getReviews() {
@@ -49,7 +49,7 @@ function getImageUrl(imagePath) {
     return `${API_BASE_URL}${imagePath}`;
   }
 
-  return imagePath;
+  return `${API_BASE_URL}/uploads/reviews/${imagePath}`;
 }
 
 function mapApiReviewToReview(apiReview) {
