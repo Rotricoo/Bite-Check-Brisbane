@@ -2,11 +2,11 @@
 
 $config = require __DIR__ . '/db.config.php';
 
-$host = $config['host'];
-$db = $config['db'];
-$user = $config['user'];
-$pass = $config['pass'];
-$charset = $config['charset'];
+$host = 'localhost';
+$db   = 'if0_42665315_db_bite_blog';
+$user = 'if0_42665315';
+$pass = '4dLXQCYoMBeTz';
+$charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
